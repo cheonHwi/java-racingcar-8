@@ -28,6 +28,11 @@ public class RaceManager {
                 winner.add(car);
             }
         }
+
+        if (winnerPosition == 0) {
+            return new ArrayList<>();
+        }
+
         return winner;
     }
 }

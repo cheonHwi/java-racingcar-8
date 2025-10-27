@@ -92,6 +92,36 @@ class ApplicationTest extends NsTest {
         });
     }
 
+    @Test
+    void 자동차_차수별_실행_결과_테스트() {
+        assertSimpleTest(() -> {
+            run("pobi,woni", "3");
+        });
+    }
+
+
+    @Test
+    void 우승자_단일_검증() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP
+        );
+    }
+
+    @Test
+    void 우승자_복수_검증() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : -", "최종 우승자 : pobi, woni");
+                },
+                MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});

@@ -6,7 +6,7 @@ public class StringValidator {
         return input;
     }
 
-    public int validateRepeatCnt(String repeatCnt) {
+    public int validateMoveTryCount(String repeatCnt) {
         try{
             return Integer.parseInt(repeatCnt);
         } catch(NumberFormatException e){

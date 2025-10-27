@@ -122,6 +122,17 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 우승자_모두_정지_검증() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : ", "woni : ", "최종 우승자 : 없음");
+                },
+                STOP, STOP
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});

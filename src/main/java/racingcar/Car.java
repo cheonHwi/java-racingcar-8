@@ -6,13 +6,10 @@ public class Car {
     private final String name;
     private int position = 0;
 
-    public int move(int moveTryCount) {
-        for(int i = 0; i < moveTryCount; i++) {
-            if(Randoms.pickNumberInRange(0,9) >= 4) {
-                position++;
-            }
+    public void move() {
+        if(Randoms.pickNumberInRange(0,9) >= 4) {
+            position++;
         }
-        return position;
     }
 
     public int getPosition() {
@@ -23,8 +20,7 @@ public class Car {
         System.out.println(name + " : " + "-".repeat(Math.max(0, position)));
     }
 
-    public Car(String name, int moveTryCount) {
+    public Car(String name) {
         this.name = name;
-        this.position = move(moveTryCount);
     }
 }

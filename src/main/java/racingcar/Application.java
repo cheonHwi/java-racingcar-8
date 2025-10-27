@@ -30,14 +30,19 @@ public class Application {
 
         raceManager.startRace(moveTryCount, carList);
 
-
         List<Car> winnerList = raceManager.announceWinner(carList);
 
-        String winnerString = winnerList.stream()
-                .map(Car::getName)
-                .collect(Collectors.joining(", "));
+        if (winnerList.isEmpty()) {
+            System.out.println("최종 우승자 : 없음");
+        }
+        else {
+            String winnerString = winnerList.stream()
+                    .map(Car::getName)
+                    .collect(Collectors.joining(", "));
+            System.out.println("최종 우승자 : " + winnerString);
+        }
 
-        System.out.println("최종 우승자 : " + winnerString);
+
 
     }
 }
